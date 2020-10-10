@@ -5,9 +5,14 @@
 <style>
 body {font-family: Arial, Helvetica, sans-serif;}
 
+/*Added modal open class and align the items in center*/
+
+.modal-open {
+  text-align: center;
+}
 /* Full-width input fields */
 input[type=text], input[type=password] {
-  width: 300%;
+  width: 100%;
   padding: 13px 20px;
   margin: 8px 0;
   display: inline-block;
@@ -18,15 +23,15 @@ input[type=text], input[type=password] {
 /* Set a style for all buttons */
 button {
   background-color: #a3493c;
-  color: black;
+  color: white;
   padding: 14px 20px;
   margin: 8px 0;
   border: none;
   cursor: pointer;
   width: 100%;
+
 }
-/*Button below*
-  
+
 button:hover {
   opacity: 0.8;
 }
@@ -41,14 +46,14 @@ button:hover {
 /* Center the image */
 .imgcontainer {
   text-align: center;
-  margin: 25px 0 12px 0;
-  position: relative;
+  margin: 24px 0 12px 0;
+  /*position: relative;*/
 }
 
-img.avatar {
-  width: 50%;
-  border-radius: 60%;
-}
+/*img.avatar {*/
+/*  width: 20%;*/
+/*  border-radius: 50%;*/
+/*}*/
 
 .container {
   padding: 16px;
@@ -57,8 +62,12 @@ img.avatar {
 span.psw {
   float: right;
   padding-top: 16px;
+  color: white;
 }
-
+a {
+  text-decoration: none;
+  color: white;
+}
 /* The Modal (background) */
 .modal {
   display: none; /* Hidden by default */
@@ -66,7 +75,7 @@ span.psw {
   z-index: 1; /* Sit on top */
   left: 0;
   top: 0;
-  width: 200%; /* Full width */
+  width: 100%; /* Full width */
   height: 100%; /* Full height */
   overflow: auto; /* Enable scroll if needed */
   background-color: rgb(0,0,0); /* Fallback color */
@@ -77,16 +86,20 @@ span.psw {
 /* Modal Content/Box */
 .modal-content {
   background-color: #fefefe;
-  margin: 5% auto 15% auto; /* 5% from the top, 15% from the bottom and centered */
+  margin: 8% auto 15% auto; /* 5% from the top, 15% from the bottom and centered */
   border: 1px solid #888;
   width: 80%; /* Could be more or less, depending on screen size */
+}
+.login-button {
+  width: 20%;
 }
 
 /* The Close Button (x) */
 .close {
   position: absolute;
-  right: 25px;
-  top: 2;
+  /*right: 25px;*/
+  right: 162px;
+  top: 172px;
   color: #000;
   font-size: 35px;
   font-weight: bold;
@@ -97,7 +110,18 @@ span.psw {
   color: red;
   cursor: pointer;
 }
-
+@media only screen and (max-width: 767px) {
+  .modal-content {
+    margin: 25% auto 15% auto;
+  }
+  .login-button {
+    width: 70%;
+  }
+  .close {
+    right: 51px;
+    top: 150px;
+  }
+}
 /* Add Zoom Animation */
 .animate {
   -webkit-animation: animatezoom 0.6s;
@@ -121,23 +145,28 @@ span.psw {
      float: none;
   }
   .cancelbtn {
-     width: 200%;
+     width: 150%;
   }
 }
 </style>
 </head>
 <body>
 
-<h2>Modern Login Form</h2>
+<div class="modal-open">
+  <h1>Modal Login Form</h1>
+  <hr>
+  <button onclick="document.getElementById('id01').style.display='block'" class="login-button" style="font-size: 20px; outline: none">Login</button>
+</div>
+<!--<h2>Modal Login Form</h2>-->
 
-<button onclick="document.getElementById('id01').style.display='block'" style="width:auto;">Login</button>
+<!--<button onclick="document.getElementById('id01').style.display='block'" style="width:auto;">Login</button>-->
 
 <div id="id01" class="modal">
   
   <form class="modal-content animate" action="/action_page.php" method="post">
     <div class="imgcontainer">
       <span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Modal">&times;</span>
-      <img src="img_avatar2.png" alt="Avatar" class="avatar">
+<!--      <img src="network-avatar-.svg" alt="Avatar" class="avatar">-->
     </div>
 
     <div class="container">
@@ -147,13 +176,13 @@ span.psw {
       <label for="psw"><b>Password</b></label>
       <input type="password" placeholder="Enter Password" name="psw" required>
         
-      <button type="submit">Login</button>
+      <button type="submit" class="login-button" style="font-size: 18px; display: block; margin: 20px auto">Login</button>
       <label>
         <input type="checkbox" checked="checked" name="remember"> Remember me
       </label>
     </div>
 
-    <div class="container" style="background-color:#a3493b">
+    <div class="container" style="background-color:#a3493b; padding:5px 10px;">
       <button type="button" onclick="document.getElementById('id01').style.display='none'" class="cancelbtn">Cancel</button>
       <span class="psw">Forgot <a href="#">password?</a></span>
     </div>
